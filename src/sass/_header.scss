@@ -1,0 +1,32 @@
+.header {
+  padding: 0 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-btn {
+    cursor: pointer;
+    height: 45px;
+  }
+
+  .your-bookshelf-btn {
+    background: none;
+    border: none;
+    outline: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 25px;
+    margin: 15px;
+    color: $rust-color;
+
+    &:hover {
+      color: $oat-color;
+      cursor: pointer;
+    }
+
+    &:active {
+      color: $cream-color;
+    }
+  }
+}

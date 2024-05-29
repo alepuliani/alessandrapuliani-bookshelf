@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Bookshelf</title>
+  </head>
+  <body>
+    <header>
+      <nav class="header">
+        <button class="your-bookshelf-btn">
+          <i class="bi bi-book"></i>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <div class="search-container">
+        <div class="intro-div">
+          <div class="intro-text">
+            <h1>Finding a book has never been easier</h1>
+            <h2>Search for your favorite genre and find hundreds of books</h2>
+          </div>
+
+          <form class="search">
+            <input
+              type="text"
+              class="search-field"
+              placeholder="Search a genre"
+            />
+            <button class="btn search-btn">
+              <i class="bi bi-search"></i>
+              <span>Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="results">
+        <div class="title-div"></div>
+        <div class="results-container hidden"></div>
+      </div>
+      <div class="pages hidden">
+        <button class="prev-button">Previous</button>
+        <span class="page-info"></span>
+        <button class="next-button">Next</button>
+      </div>
+    </main>
+
+    <div class="description-window hidden">
+      <button class="close-description-btn">
+        <i class="bi bi-x"></i>
+      </button>
+      <div class="description-div"></div>
+      <div class="description-buttons">
+        <button class="favorite-btn"></button>
+      </div>
+    </div>
+    <div class="back-window hidden"></div>
+
+    <div class="your-bookshelf hidden">
+      <button class="close-bookshelf-btn">
+        <i class="bi bi-x"></i>
+      </button>
+      <h3>Your Books</h3>
+      <p class="no-books-message">No favorite books</p>
+      <ul class="favorite-list"></ul>
+      <button class="clear-btn hidden">Clear</button>
+    </div>
+    <footer></footer>
+  </body>
+</html>

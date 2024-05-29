@@ -1,0 +1,26 @@
+$rust-color: #803407;
+$oat-color: #e5ddd0;
+$cream-color: #fbf6f1;
+$terracotta-color: #cfa47f;
+
+.poppins-regular {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin close-buttons($color) {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 40px;
+  color: $color;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+
+  &:active {
+    outline: none;
+  }
+}

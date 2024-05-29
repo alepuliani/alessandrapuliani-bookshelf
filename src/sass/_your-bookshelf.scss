@@ -1,0 +1,64 @@
+.your-bookshelf {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  min-height: 300px;
+  border-radius: 20px;
+  background-color: $cream-color;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 0 15px rgba(black, 0.5);
+  z-index: 50;
+
+  .close-bookshelf-btn {
+    @include close-buttons($rust-color);
+  }
+
+  h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+
+    .li-button {
+      margin-left: 20px;
+      border: none;
+      outline: none;
+      background: none;
+      color: black;
+      font-size: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .clear-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    width: 40px;
+    color: $rust-color;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+
+    &:hover {
+      color: $terracotta-color;
+    }
+
+    &:active {
+      border: 0px;
+      outline: none;
+      color: $rust-color;
+    }
+  }
+}
