@@ -37,7 +37,7 @@ const wrongGenre = function (genre) {
 };
 
 const getBooks = async function (genre) {
-  axios
+  await axios
     .get(`https://openlibrary.org/subjects/${genre}.json?limit=20`)
     .then(res => {
       searchResults.innerHTML = '';
