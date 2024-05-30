@@ -107,3 +107,14 @@
     }
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .search-container {
+    .intro-div {
+      max-width: 800px;
+      .search {
+        width: 400px;
+      }
+    }
+  }
+}
