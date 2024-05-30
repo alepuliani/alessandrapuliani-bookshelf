@@ -2,26 +2,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background-image: url(../img/background.png);
   background-size: cover;
   color: white;
-  font-size: 40px;
+  padding-top: 70px;
 
   .intro-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     max-width: 600px;
 
     margin: 60px;
     padding-bottom: 50px;
 
     h1 {
-      font-size: 45px;
-      line-height: 80px;
+      font-size: 55px;
+      line-height: 50px;
+      margin-bottom: 20px;
     }
 
     h2 {
@@ -31,13 +28,13 @@
     }
 
     .search {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background-color: #fff;
       border-radius: 10rem;
-      display: flex;
-      align-items: center;
       padding: 0 10px;
       transition: all 0.3s;
-      font-size: 15px;
 
       &:focus-within {
         transform: translateY(-2px);
@@ -77,8 +74,9 @@
 }
 
 .on-search {
-  min-height: 70px;
-  max-height: 100px;
+  margin-top: 70px;
+  padding-top: 0;
+  height: 100px;
   .intro-div {
     padding-bottom: 0;
   }

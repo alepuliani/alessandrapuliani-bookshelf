@@ -1,3 +1,4 @@
+require('./app');
 import '../css/style.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { init, restoreHome, resultContainer, logo } from './elements';
