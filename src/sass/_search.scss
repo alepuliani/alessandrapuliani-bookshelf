@@ -10,9 +10,11 @@
   padding-top: 70px;
 
   .intro-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 600px;
-
-    margin: 60px;
     padding-bottom: 50px;
 
     h1 {
@@ -35,6 +37,7 @@
       border-radius: 10rem;
       padding: 0 10px;
       transition: all 0.3s;
+      min-width: 300px;
 
       &:focus-within {
         transform: translateY(-2px);
@@ -96,7 +99,8 @@
       }
       .search {
         &-field {
-          width: 200px;
+          min-width: 200px;
+          max-width: 300px;
         }
       }
     }
