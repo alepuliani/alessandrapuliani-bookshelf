@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//Elements for displaying the description
 const descriptionWindow = document.querySelector('.description-window');
 const descriptionDiv = document.querySelector('.description-div');
 const favoriteUl = document.querySelector('.favorite-list');
@@ -9,6 +10,7 @@ export const favoriteBtn = document.querySelector('.favorite-btn');
 let bookTitle;
 export let yourBookshelfBooks = [];
 
+// Open the book description
 export const openDescription = async function (event) {
   document.body.style.overflow = 'hidden';
   const bookCard = event.target.closest('.book-display');
@@ -35,6 +37,7 @@ export const openDescription = async function (event) {
   }
 };
 
+// Close the book description
 export const closeDescription = function () {
   descriptionWindow.classList.add('hidden');
   backWindow.classList.add('hidden');
@@ -42,6 +45,7 @@ export const closeDescription = function () {
   descriptionDiv.innerHTML = '';
 };
 
+// Add a book to favorites
 export const addToYourBookshelf = function () {
   if (!yourBookshelfBooks.includes(bookTitle)) {
     yourBookshelfBooks.push(bookTitle);
@@ -52,6 +56,7 @@ export const addToYourBookshelf = function () {
   updateBookshelf();
 };
 
+// Update the display of favorite or non-favorite buttons
 export const updateBtn = function () {
   if (yourBookshelfBooks.includes(bookTitle)) {
     favoriteBtn.innerHTML = '<i class="bi bi-suit-heart-fill"></i>';
@@ -60,6 +65,7 @@ export const updateBtn = function () {
   }
 };
 
+// Display favorite books in the personal bookshelf
 export const updateBookshelf = function () {
   favoriteUl.innerHTML = '';
   if (!yourBookshelfBooks.length == 0) {
@@ -71,10 +77,12 @@ export const updateBookshelf = function () {
   setLocalStorage(yourBookshelfBooks);
 };
 
+// Ensure that the data remains in the store even if the app is closed
 const setLocalStorage = function (books) {
   localStorage.setItem('books', JSON.stringify(books));
 };
 
+// Update the library with existing data
 export const getLocalStorage = function () {
   const data = JSON.parse(localStorage.getItem('books'));
   if (data) {

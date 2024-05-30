@@ -1,5 +1,7 @@
 import '../css/style.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Elements imported from other files
 import { init, restoreHome, resultContainer, logo } from './elements';
 import {
   openDescription,
@@ -16,13 +18,16 @@ import {
 } from './your-bookshelf';
 import { getGenre } from './search';
 
+// Selecting necessary elements for the functioning of the app
 const searchForm = document.querySelector('.search');
 const yourBookshelfButton = document.querySelector('.your-bookshelf-btn');
 const closeBookshelfBtn = document.querySelector('.close-bookshelf-btn');
 const closeDescriptionButton = document.querySelector('.close-description-btn');
 
+// App initialization
 init();
 
+// Event Listeners
 searchForm.addEventListener('submit', getGenre);
 resultContainer.addEventListener('click', openDescription);
 backWindow.addEventListener('click', closeDescription);

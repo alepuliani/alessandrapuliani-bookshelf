@@ -9,6 +9,7 @@ const yourBookshelf = document.querySelector('.your-bookshelf');
 const emptyBookshelfMessage = document.querySelector('.no-books-message');
 export const clearBtn = document.querySelector('.clear-btn');
 
+// Personal bookshelf display
 export const displayBookshelf = function () {
   backWindow.classList.remove('hidden');
   yourBookshelf.classList.remove('hidden');
@@ -18,11 +19,13 @@ export const displayBookshelf = function () {
   }
 };
 
+// Close the personal bookshelf
 export const closeBookshelf = function () {
   yourBookshelf.classList.add('hidden');
   backWindow.classList.add('hidden');
 };
 
+// Remove all books from favorites
 export const clearBookshelf = function () {
   yourBookshelfBooks.length = 0;
   emptyBookshelfMessage.classList.remove('hidden');

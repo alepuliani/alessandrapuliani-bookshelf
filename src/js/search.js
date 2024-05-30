@@ -6,10 +6,12 @@ import {
   searchContainer,
 } from './elements';
 
+// Selecting necessary elements for the API calls
 const titleDiv = document.querySelector('.title-div');
 const searchResults = document.querySelector('.results-container');
 const errorDiv = document.createElement('div');
 
+// What happens when the user enters a genre to search for
 export const getGenre = function (event) {
   {
     event.preventDefault();
@@ -29,6 +31,7 @@ export const getGenre = function (event) {
   }
 };
 
+// What happens when the genre is not present in the external library
 const wrongGenre = function (genre) {
   searchResults.append(errorDiv);
   errorDiv.innerHTML = `<p><i class="bi bi-emoji-frown"></i> Can't find '${genre}', please try another book genre.</p>`;
@@ -36,6 +39,7 @@ const wrongGenre = function (genre) {
   errorDiv.classList.remove('hidden');
 };
 
+// API call to the external library and display of books
 const getBooks = async function (genre) {
   await axios
     .get(`https://openlibrary.org/subjects/${genre}.json?limit=20`)
