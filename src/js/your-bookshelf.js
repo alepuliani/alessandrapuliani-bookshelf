@@ -13,6 +13,8 @@ export const clearBtn = document.querySelector('.clear-btn');
 export const displayBookshelf = function () {
   backWindow.classList.remove('hidden');
   yourBookshelf.classList.remove('hidden');
+  yourBookshelf.style.right = '10px';
+
   if (!yourBookshelfBooks.length == 0) {
     emptyBookshelfMessage.classList.add('hidden');
     clearBtn.classList.remove('hidden');
@@ -21,8 +23,8 @@ export const displayBookshelf = function () {
 
 // Close the personal bookshelf
 export const closeBookshelf = function () {
-  yourBookshelf.classList.add('hidden');
   backWindow.classList.add('hidden');
+  yourBookshelf.style.right = '-300px';
 };
 
 // Remove all books from favorites

@@ -2,18 +2,19 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 30px 30px 60px 50px;
+  padding: 50px 30px 80px 50px;
   width: 300px;
 
   position: fixed;
   top: 15px;
-  right: 13px;
+  right: -300px;
 
   border-radius: 20px;
   background-color: $cream-color;
   box-shadow: 0 0 15px rgba(black, 0.5);
   z-index: 100;
   flex-wrap: wrap;
+  transition: 0.3s;
 
   .close-bookshelf-btn {
     @include close-buttons($rust-color);
