@@ -46,7 +46,7 @@ const wrongGenre = function (genre) {
 // API call to the external library and display of books
 const getBooks = async function (genre) {
   await axios
-    .get(`https://openlibrary.org/subjects/${genre}.json?limit=20`)
+    .get(`https://openlibrary.org/subjects/${genre}.json?limit=100`)
     .then(res => {
       searchResults.innerHTML = '';
       errorDiv.classList.add('hidden');
@@ -66,7 +66,7 @@ const getBooks = async function (genre) {
               <img
               class="book-cover"
               src="https://covers.openlibrary.org/b/id/${book.cover_id}.jpg"
-              alt=""
+              alt="Book cover"
             />
               <div class="book-info">
                 <p class="book-title"><strong>${book.title}</strong></p>
