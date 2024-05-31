@@ -24,7 +24,7 @@ export const displayBookshelf = function () {
 // Close the personal bookshelf
 export const closeBookshelf = function () {
   backWindow.classList.add('hidden');
-  yourBookshelf.style.right = '-320px';
+  yourBookshelf.style.right = '-300px';
 };
 
 // Remove all books from favorites

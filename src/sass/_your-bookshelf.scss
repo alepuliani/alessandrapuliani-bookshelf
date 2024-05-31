@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 60px 30px 100px 50px;
-  width: 300px;
+  width: 280px;
 
   position: fixed;
-  top: 10px;
+  top: 80px;
   right: -300px;
 
   border-radius: 15px;
@@ -14,6 +14,7 @@
   box-shadow: 0 0 15px rgba(black, 0.5);
   z-index: 100;
   flex-wrap: wrap;
+  word-wrap: break-word;
   transition: 0.3s;
 
   .close-bookshelf-btn {
