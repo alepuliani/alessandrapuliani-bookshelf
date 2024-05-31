@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 50px 30px 80px 50px;
-  width: 300px;
+  padding: 60px 50px 90px 70px;
+  width: 320px;
 
   position: fixed;
-  top: 15px;
-  right: -300px;
+  top: 10px;
+  right: -320px;
 
-  border-radius: 20px;
+  border-radius: 15px;
   background-color: $cream-color;
   box-shadow: 0 0 15px rgba(black, 0.5);
   z-index: 100;
@@ -18,7 +18,7 @@
 
   .close-bookshelf-btn {
     @include close-buttons($rust-color);
-    margin: 5px;
+    margin: 15px;
   }
 
   h3 {
@@ -45,7 +45,7 @@
   .clear-btn {
     position: absolute;
     bottom: 15px;
-    right: 20px;
+    right: 30px;
     width: 50px;
     font-size: 18px;
     font-weight: bold;
