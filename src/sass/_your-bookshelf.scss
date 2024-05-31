@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 30px 30px 60px 50px;
+  width: 300px;
 
   position: fixed;
   top: 15px;
@@ -9,13 +11,13 @@
 
   border-radius: 20px;
   background-color: $cream-color;
-  padding: 90px;
-  padding-top: 60px;
   box-shadow: 0 0 15px rgba(black, 0.5);
   z-index: 100;
+  flex-wrap: wrap;
 
   .close-bookshelf-btn {
     @include close-buttons($rust-color);
+    margin: 5px;
   }
 
   h3 {
@@ -25,9 +27,6 @@
   }
 
   .list-item {
-    display: flex;
-    justify-content: space-between;
-
     .li-button {
       margin-left: 20px;
       border: none;
@@ -46,12 +45,15 @@
     position: absolute;
     bottom: 15px;
     right: 20px;
-    width: 40px;
+    width: 50px;
+    font-size: 18px;
+    font-weight: bold;
     color: $rust-color;
     cursor: pointer;
     border: none;
     background: none;
     outline: none;
+    margin: 5px;
 
     &:hover {
       color: $terracotta-color;

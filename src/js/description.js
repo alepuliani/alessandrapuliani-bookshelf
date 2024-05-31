@@ -19,17 +19,27 @@ export const openDescription = async function (event) {
     await axios
       .get(`https://openlibrary.org${bookKey}.json`)
       .then(res => {
-        const bookDescription = res.data.description;
+        let bookDescription = res.data.description;
         bookTitle = res.data.title;
 
+        if (
+          bookDescription &&
+          typeof bookDescription === 'object' &&
+          'value' in bookDescription
+        ) {
+          bookDescription = bookDescription.value;
+        } else if (!bookDescription) {
+          bookDescription = `The description of the book "${bookTitle}" is not available`;
+        }
         descriptionWindow.classList.remove('hidden');
         backWindow.classList.remove('hidden');
 
         const bookInfo = `
-      <h1>${bookTitle}</h1>
-      <p>${bookDescription}</p>`;
+          <h1>${bookTitle}</h1>
+          <p>${bookDescription}</p>`;
 
         descriptionDiv.innerHTML = bookInfo;
+        console.log(bookTitle);
 
         updateBtn();
       })

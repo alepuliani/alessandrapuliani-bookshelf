@@ -17,7 +17,11 @@ export const getGenre = function (event) {
     event.preventDefault();
     renderSpinner(searchResults);
 
-    const userInput = document.querySelector('.search-field').value;
+    const userInput = document
+      .querySelector('.search-field')
+      .value.toLowerCase()
+      .trim();
+
     if (userInput) {
       titleDiv.textContent = '';
 
