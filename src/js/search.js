@@ -1,3 +1,4 @@
+import BookOnerror from '../img/book-onerror.png';
 import axios from 'axios';
 import {
   renderSpinner,
@@ -5,6 +6,7 @@ import {
   introText,
   searchContainer,
 } from './elements';
+import { backWindow } from './description';
 
 // Selecting necessary elements for the API calls
 const titleDiv = document.querySelector('.title-div');
@@ -67,28 +69,30 @@ const wrongGenre = function (genre) {
  * that you want to retrieve.
  */
 const getBooks = async function (genre) {
-  await axios
-    .get(`https://openlibrary.org/subjects/${genre}.json?limit=100`)
-    .then(res => {
-      searchResults.innerHTML = '';
-      errorDiv.classList.add('hidden');
-      searchResults.classList.remove('error-results');
+  try {
+    const res = await axios.get(
+      `https://openlibrary.org/subjects/${genre}.json?limit=100`
+    );
+    searchResults.innerHTML = '';
+    errorDiv.classList.add('hidden');
+    searchResults.classList.remove('error-results');
 
-      const books = res.data.works;
+    const books = res.data.works;
 
-      if (books.length !== 0) {
-        const searchGenreTitle = `<h3><strong>${genre[0].toUpperCase()}${genre.slice(
-          1
-        )} books:</strong></h3>`;
-        titleDiv.insertAdjacentHTML('beforeend', searchGenreTitle);
+    if (books.length !== 0) {
+      const searchGenreTitle = `<h3><strong>${genre[0].toUpperCase()}${genre.slice(
+        1
+      )} books:</strong></h3>`;
+      titleDiv.insertAdjacentHTML('beforeend', searchGenreTitle);
 
-        books.forEach(book => {
-          const card = `
+      books.forEach(book => {
+        const card = `
         <button class="book-display" data-book-key=${book.key}>
               <img
               class="book-cover"
               src="https://covers.openlibrary.org/b/id/${book.cover_id}.jpg"
-              alt="Book cover"
+              alt="Book cover" 
+              onerror="this.onerror=null;this.src='${BookOnerror}'"
             />
               <div class="book-info">
                 <p class="book-title"><strong>${book.title}</strong></p>
@@ -96,12 +100,11 @@ const getBooks = async function (genre) {
               </div>
             </button>`;
 
-          searchResults.insertAdjacentHTML('beforeend', card);
-          console.log(book);
-        });
-      } else wrongGenre(genre);
-    })
-    .catch(
-      err => (searchResults.innerHTML = `Somenthing went wrong (Error: ${err})`)
-    );
+        searchResults.insertAdjacentHTML('beforeend', card);
+        console.log(book);
+      });
+    } else wrongGenre(genre);
+  } catch (err) {
+    searchResults.innerHTML = `Somenthing went wrong (Error: ${err})`;
+  }
 };
