@@ -1,53 +1,66 @@
 import axios from 'axios';
 
-//Elements for displaying the description
+// Selectors for DOM elements
 const descriptionWindow = document.querySelector('.description-window');
 const descriptionDiv = document.querySelector('.description-div');
 const favoriteUl = document.querySelector('.favorite-list');
 export const backWindow = document.querySelector('.back-window');
 export const favoriteBtn = document.querySelector('.favorite-btn');
 
+// State variables
 let bookTitle;
 export let yourBookshelfBooks = [];
 
 // Open the book description
+
+/**
+ * The function `openDescription` is an asynchronous function that retrieves a book description from an
+ * API and displays it in a modal window on a web page.
+ * @param event - The `event` parameter in the `openDescription` function is an event object that
+ * represents an event being handled, such as a click event on a specific element. It contains
+ * information about the event, such as the target element that triggered the event. In this case, it
+ * is used to retrieve the
+ */
 export const openDescription = async function (event) {
   document.body.style.overflow = 'hidden';
   const bookCard = event.target.closest('.book-display');
   if (bookCard) {
     const bookKey = bookCard.getAttribute('data-book-key');
-    await axios
-      .get(`https://openlibrary.org${bookKey}.json`)
-      .then(res => {
-        let bookDescription = res.data.description;
-        bookTitle = res.data.title;
+    try {
+      const response = await axios.get(
+        `https://openlibrary.org${bookKey}.json`
+      );
+      const bookData = response.data;
+      bookTitle = bookData.title;
+      let bookDescription = bookData.description;
 
-        if (
-          bookDescription &&
-          typeof bookDescription === 'object' &&
-          'value' in bookDescription
-        ) {
-          bookDescription = bookDescription.value;
-        } else if (!bookDescription) {
-          bookDescription = `The description of the book "${bookTitle}" is not available`;
-        }
-        descriptionWindow.classList.remove('hidden');
-        backWindow.classList.remove('hidden');
+      if (typeof bookDescription === 'object' && 'value' in bookDescription) {
+        bookDescription = bookDescription.value;
+      }
 
-        const bookInfo = `
-          <h1>${bookTitle}</h1>
-          <p>${bookDescription}</p>`;
+      if (!bookDescription) {
+        bookDescription = `The description of the book "${bookTitle}" is not available`;
+      }
 
-        descriptionDiv.innerHTML = bookInfo;
-        console.log(bookTitle);
+      descriptionWindow.classList.remove('hidden');
+      backWindow.classList.remove('hidden');
+      descriptionDiv.innerHTML = `
+      <h1>${bookTitle}</h1>
+      <p>${bookDescription}</p>
+    `;
 
-        updateBtn();
-      })
-      .catch(err => console.log(err));
+      updateBtn();
+    } catch (error) {
+      console.error(`Error fetching book data: ${error}`);
+    }
   }
 };
 
-// Close the book description
+// CLOSE THE BOO K DESCRIPTION
+/**
+ * The closeDescription function hides the description window, back window, and sets the body overflow
+ * style to auto.
+ */
 export const closeDescription = function () {
   descriptionWindow.classList.add('hidden');
   backWindow.classList.add('hidden');
@@ -56,6 +69,10 @@ export const closeDescription = function () {
 };
 
 // Add a book to favorites
+/**
+ * The function `addToYourBookshelf` adds or removes a book title from the `yourBookshelfBooks` array
+ * and then updates the button and bookshelf accordingly.
+ */
 export const addToYourBookshelf = function () {
   if (!yourBookshelfBooks.includes(bookTitle)) {
     yourBookshelfBooks.push(bookTitle);
@@ -67,32 +84,50 @@ export const addToYourBookshelf = function () {
 };
 
 // Update the display of favorite or non-favorite buttons
+
+/**
+ * The updateBtn function updates the inner HTML of a button based on whether a book title is included
+ * in a bookshelf array.
+ */
 export const updateBtn = function () {
-  if (yourBookshelfBooks.includes(bookTitle)) {
-    favoriteBtn.innerHTML = '<i class="bi bi-suit-heart-fill"></i>';
-  } else {
-    favoriteBtn.innerHTML = '<i class="bi bi-suit-heart"></i>';
-  }
+  yourBookshelfBooks.includes(bookTitle)
+    ? (favoriteBtn.innerHTML = '<i class="bi bi-suit-heart-fill"></i>')
+    : (favoriteBtn.innerHTML = '<i class="bi bi-suit-heart"></i>');
 };
 
 // Display favorite books in the personal bookshelf
+/**
+ * The `updateBookshelf` function clears the favoriteUl element and populates it with book items from
+ * the yourBookshelfBooks array, updating the local storage accordingly.
+ */
 export const updateBookshelf = function () {
   favoriteUl.innerHTML = '';
-  if (!yourBookshelfBooks.length == 0) {
+  if (yourBookshelfBooks.length > 0) {
     yourBookshelfBooks.forEach(book => {
-      const listElement = `<li> ${book} </li>`;
-      favoriteUl.insertAdjacentHTML('beforeend', listElement);
+      const listElement = document.createElement('li');
+      listElement.textContent = book;
+      favoriteUl.appendChild(listElement);
     });
   }
   setLocalStorage(yourBookshelfBooks);
 };
 
 // Ensure that the data remains in the store even if the app is closed
+/**
+ * The function `setLocalStorage` stores an array of books in the browser's local storage after
+ * converting it to a JSON string.
+ * @param books - The `books` parameter is an array of book objects that you want to store in the
+ * browser's local storage. The `setLocalStorage` function takes this array of books, converts it to a
+ * JSON string using `JSON.stringify`, and then stores it in the local storage under the key 'books'.
+ */
 const setLocalStorage = function (books) {
   localStorage.setItem('books', JSON.stringify(books));
 };
 
-// Update the library with existing data
+/**
+ * This function retrieves data from the local storage and updates the bookshelf with the existing
+ * data.
+ */
 export const getLocalStorage = function () {
   const data = JSON.parse(localStorage.getItem('books'));
   if (data) {

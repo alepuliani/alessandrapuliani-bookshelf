@@ -11,7 +11,11 @@ export const logo = new Image();
 logo.src = Logo;
 logo.classList.add('logo-btn');
 
-// App initialization function
+/**
+ * The `init` function prepends a logo to the header, restores the home
+ * state, and retrieves data from local storage.
+ */
+
 export const init = function () {
   header.prepend(logo);
   restoreHome();
@@ -19,6 +23,10 @@ export const init = function () {
 };
 
 // Restore the layout to its initial settings
+/**
+ * The `restoreHome` function hides the result container, removes the 'on-search' class from the search
+ * container, and shows the intro text.
+ */
 export const restoreHome = function () {
   resultContainer.classList.add('hidden');
   searchContainer.classList.remove('on-search');
@@ -26,6 +34,11 @@ export const restoreHome = function () {
 };
 
 // Spinner for data loading
+/**
+ * The `renderSpinner` function inserts a spinner element into a specified parent element.
+ * @param parentEl - The `parentEl` parameter in the `renderSpinner` function is the element to which
+ * the spinner markup will be added.
+ */
 export const renderSpinner = function (parentEl) {
   const markup = `<span class="spinner"></span>`;
   parentEl.innerHTML = '';

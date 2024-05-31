@@ -12,6 +12,14 @@ const searchResults = document.querySelector('.results-container');
 const errorDiv = document.createElement('div');
 
 // What happens when the user enters a genre to search for
+/**
+ * The function `getGenre` takes user input, processes it to search for books, and updates the UI
+ * accordingly.
+ * @param event - The `event` parameter in the `getGenre` function is an event object that is passed as
+ * an argument when the function is called. It is used to prevent the default behavior of a form
+ * submission, in this case, with `event.preventDefault()`. This helps in handling form submissions and
+ * performing actions
+ */
 export const getGenre = function (event) {
   {
     event.preventDefault();
@@ -36,6 +44,13 @@ export const getGenre = function (event) {
 };
 
 // What happens when the genre is not present in the external library
+/**
+ * The function `wrongGenre` displays an error message indicating that a specific book genre cannot be
+ * found.
+ * @param genre - The `wrongGenre` function takes a `genre` parameter as input. If the genre provided
+ * is not found in the search results, an error message is displayed indicating that the genre couldn't
+ * be found and suggesting to try another book genre.
+ */
 const wrongGenre = function (genre) {
   searchResults.append(errorDiv);
   errorDiv.innerHTML = `<p><i class="bi bi-emoji-frown"></i> Can't find '${genre}', please try another book genre.</p>`;
@@ -44,6 +59,13 @@ const wrongGenre = function (genre) {
 };
 
 // API call to the external library and display of books
+/**
+ * The function `getBooks` asynchronously fetches and displays book information based on a specified
+ * genre using the Open Library API.
+ * @param genre - The `getBooks` function is an asynchronous function that fetches a list of books
+ * based on a specified genre from the Open Library API. The `genre` parameter is the genre of books
+ * that you want to retrieve.
+ */
 const getBooks = async function (genre) {
   await axios
     .get(`https://openlibrary.org/subjects/${genre}.json?limit=100`)
@@ -75,6 +97,7 @@ const getBooks = async function (genre) {
             </button>`;
 
           searchResults.insertAdjacentHTML('beforeend', card);
+          console.log(book);
         });
       } else wrongGenre(genre);
     })
