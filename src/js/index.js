@@ -7,8 +7,6 @@ import {
   restoreHome,
   resultContainer,
   logo,
-  goUp,
-  upButton,
   displayUpBtn,
 } from './elements';
 import {
@@ -38,7 +36,6 @@ init();
 /* These lines of code are setting up event listeners for various interactions in the app: */
 window.addEventListener('scroll', displayUpBtn);
 logo.addEventListener('click', restoreHome);
-upButton.addEventListener('click', goUp);
 
 // Search
 searchForm.addEventListener('submit', getGenre);

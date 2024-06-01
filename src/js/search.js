@@ -5,6 +5,8 @@ import {
   resultContainer,
   introText,
   searchContainer,
+  upButton,
+  goUp,
 } from './elements';
 
 // Selecting necessary elements for the API calls
@@ -25,6 +27,7 @@ export const getGenre = function (event) {
   {
     event.preventDefault();
     renderSpinner(searchResults);
+    upButton.addEventListener('click', goUp);
 
     const userInput = document
       .querySelector('.search-field')
