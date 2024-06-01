@@ -9,6 +9,7 @@ export const favoriteBtn = document.querySelector('.favorite-btn');
 
 // State variables
 let bookTitle;
+let bookDescription;
 export let yourBookshelfBooks = [];
 
 // Open the book description
@@ -32,7 +33,7 @@ export const openDescription = async function (event) {
       );
       const bookData = response.data;
       bookTitle = bookData.title;
-      let bookDescription = bookData.description;
+      bookDescription = bookData.description;
 
       if (typeof bookDescription === 'object' && 'value' in bookDescription) {
         bookDescription = bookDescription.value;
@@ -42,18 +43,29 @@ export const openDescription = async function (event) {
         bookDescription = `The description of the book "${bookTitle}" is not available`;
       }
 
-      descriptionWindow.classList.remove('hidden');
-      backWindow.classList.remove('hidden');
-      descriptionDiv.innerHTML = `
-      <h1>${bookTitle}</h1>
-      <p>${bookDescription}</p>
-    `;
-
+      displayDescription(bookTitle, bookDescription);
       updateBtn();
     } catch (error) {
       console.error(`Error fetching book data: ${error}`);
     }
   }
+};
+
+/**
+ * The function `displayDescription` takes a title and description as parameters, updates the HTML
+ * content of a div element with the provided title and description, and removes the 'hidden' class
+ * from two other elements.
+ * @param title - The `title` parameter is a string that represents the title of a description to be
+ * displayed.
+ * @param description - The `description` parameter in the `displayDescription` function is a string
+ * that represents the description content to be displayed in the description window.
+ */
+const displayDescription = function (title, description) {
+  descriptionWindow.classList.remove('hidden');
+  backWindow.classList.remove('hidden');
+  descriptionDiv.innerHTML = `
+      <h1>${title}</h1>
+      <p>${description}</p>`;
 };
 
 // CLOSE THE BOO K DESCRIPTION
@@ -65,6 +77,7 @@ export const closeDescription = function () {
   descriptionWindow.classList.add('hidden');
   backWindow.classList.add('hidden');
   document.body.style.overflow = 'auto';
+  descriptionDiv.scrollTop = 0;
   descriptionDiv.innerHTML = '';
 };
 

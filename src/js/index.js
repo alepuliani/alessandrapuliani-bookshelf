@@ -27,14 +27,20 @@ const closeDescriptionButton = document.querySelector('.close-description-btn');
 // App initialization
 init();
 
-// Event Listeners
+/* These lines of code are setting up event listeners for various interactions in the app: */
+logo.addEventListener('click', restoreHome);
+
+// Search
 searchForm.addEventListener('submit', getGenre);
+
+// Description
 resultContainer.addEventListener('click', openDescription);
 backWindow.addEventListener('click', closeDescription);
-logo.addEventListener('click', restoreHome);
+closeDescriptionButton.addEventListener('click', closeDescription);
+
+// Personal bookshelf
 yourBookshelfButton.addEventListener('click', displayBookshelf);
 backWindow.addEventListener('click', closeBookshelf);
 favoriteBtn.addEventListener('click', addToYourBookshelf);
-closeDescriptionButton.addEventListener('click', closeDescription);
 closeBookshelfBtn.addEventListener('click', closeBookshelf);
 clearBtn.addEventListener('click', clearBookshelf);
