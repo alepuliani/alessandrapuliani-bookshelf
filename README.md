@@ -11,8 +11,7 @@ Bookshelf is a web application that allows users to search for books by genre an
 Search for books by genre
 Display book details, including title, author, and description
 Add books to a personal bookshelf
-Remove books from the personal bookshelf ![Screenshot 2024-06-01 122810](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/99479385-07be-4f51-aaaf-f5ca72b966e9)
-
+Remove books from the personal bookshelf 
 
 ## How it works
 
@@ -26,7 +25,8 @@ To use Bookshelf, follow these steps:
 
 ## Additional functionalities
 
-You can also keep track of your favorite books:
+You can also keep track of your favorite books: ![Screenshot 2024-06-01 122810](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/99479385-07be-4f51-aaaf-f5ca72b966e9)
+
 
 1. Click the "heart" button to add the book to your personal bookshelf.
 2. To remove a book from your personal bookshelf, click it again.
