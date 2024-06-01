@@ -22,7 +22,7 @@ To use Bookshelf, follow these steps:
 ![Screenshot 2024-06-01 123659](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/d2a6735a-15f4-4e70-9c0a-d139f3e9cf48) ![Screenshot 2024-06-01 122529](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/d05e308e-9add-41e1-b75e-e9aaa028ba14)
 
 
-## Additional features
+## Additional feature
 
 You can also keep track of your favorite books: 
 
