@@ -27,7 +27,6 @@ export const getGenre = function (event) {
   {
     event.preventDefault();
     renderSpinner(searchResults);
-    upButton.addEventListener('click', goUp);
 
     const userInput = document
       .querySelector('.search-field')
@@ -78,6 +77,7 @@ const getBooks = async function (genre) {
     searchResults.innerHTML = '';
     errorDiv.classList.add('hidden');
     searchResults.classList.remove('error-results');
+    upButton.addEventListener('click', goUp);
 
     const books = res.data.works;
 
