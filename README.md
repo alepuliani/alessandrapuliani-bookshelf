@@ -1,3 +1,52 @@
-# alessandrapuliani-bookshelf
+# Bookshelf App
 
-https://alepuliani.github.io/alessandrapuliani-bookshelf/
+An app to help you find books of your favorite genre.
+
+🔗 [go to Bookshelf](https://alepuliani.github.io/alessandrapuliani-bookshelf/)
+
+Bookshelf is a web application that allows users to search for books by genre and store their favorite books in a personal bookshelf.
+
+## Feautures
+
+Search for books by genre
+Display book details, including title, author, and description
+Add books to a personal bookshelf
+Remove books from the personal bookshelf
+
+## How it works
+
+To use Bookshelf, follow these steps:
+
+1. Use the search bar to search for books by genre.
+2. Click on a book to view its details.
+
+## Additional functionalities
+
+You can also keep track of your favorite books:
+
+1. Click the "heart" button to add the book to your personal bookshelf.
+2. To remove a book from your personal bookshelf, click it again.
+3. Click the "personal bookshelf" button to see all your favorite books.
+4. Click the "clear" button to clear ypur bookshelf.
+
+## Structure
+
+- the HTML content in the appropriate **index.html** file
+- the Javascript content in the **index.js** file contained in the **js** folder
+- the style content compressed in **style.css** file contained in the **css** folder
+- the SASS files contained in the **scss** folder
+- the images in the **img** folder
+
+All the folders above are contained in the **src** folder
+
+## Technologies Used
+
+- Webpack
+- Open Library API
+- Axios
+
+## Languages
+
+- **HTML** for the structure
+- **CSS** and its extension **SASS** for the style features
+- **JavaScript** to make the app dynamic and customizable and implement most of the elements
