@@ -6,7 +6,6 @@ import {
   introText,
   searchContainer,
 } from './elements';
-import { backWindow } from './description';
 
 // Selecting necessary elements for the API calls
 const titleDiv = document.querySelector('.title-div');
@@ -38,9 +37,9 @@ export const getGenre = function (event) {
       resultContainer.classList.remove('hidden');
       introText.classList.add('hidden');
       searchContainer.classList.add('on-search');
+      document.querySelector('.search-field').value = '';
 
       getBooks(userInput);
-      document.querySelector('.search-field').value = '';
     }
   }
 };
@@ -100,7 +99,6 @@ const getBooks = async function (genre) {
             </button>`;
 
         searchResults.insertAdjacentHTML('beforeend', card);
-        console.log(book);
       });
     } else wrongGenre(genre);
   } catch (err) {

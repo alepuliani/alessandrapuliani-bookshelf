@@ -6,6 +6,7 @@ const header = document.querySelector('.header');
 export const resultContainer = document.querySelector('.results');
 export const searchContainer = document.querySelector('.search-container');
 export const introText = document.querySelector('.intro-text');
+export const upButton = document.querySelector('.go-up-btn');
 export const logo = new Image();
 
 logo.src = Logo;
@@ -43,4 +44,22 @@ export const renderSpinner = function (parentEl) {
   const markup = `<span class="spinner"></span>`;
   parentEl.innerHTML = '';
   parentEl.insertAdjacentHTML('afterbegin', markup);
+};
+
+/**
+ * The function `displayUpBtn` checks the scroll position of the document body and toggles the
+ * visibility of an element based on the scroll position.
+ */
+export const displayUpBtn = function () {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    upButton.classList.remove('hidden');
+  } else upButton.classList.add('hidden');
+};
+
+/**
+ * The `goUp` function scrolls the webpage to the top when called.
+ */
+export const goUp = function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 };

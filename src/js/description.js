@@ -66,6 +66,7 @@ const displayDescription = function (title, description) {
   descriptionDiv.innerHTML = `
       <h1>${title}</h1>
       <p>${description}</p>`;
+  descriptionWindow.scrollTop = 0;
 };
 
 // CLOSE THE BOO K DESCRIPTION
