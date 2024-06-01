@@ -25,13 +25,14 @@ To use Bookshelf, follow these steps:
 
 ## Additional functionalities
 
-You can also keep track of your favorite books: ![Screenshot 2024-06-01 122810](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/99479385-07be-4f51-aaaf-f5ca72b966e9)
-
+You can also keep track of your favorite books: 
 
 1. Click the "heart" button to add the book to your personal bookshelf.
 2. To remove a book from your personal bookshelf, click it again.
 3. Click the "personal bookshelf" button to see all your favorite books.
 4. Click the "clear" button to clear ypur bookshelf.
+
+![Screenshot 2024-06-01 122810](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/99479385-07be-4f51-aaaf-f5ca72b966e9)
 
 ## Structure
 
