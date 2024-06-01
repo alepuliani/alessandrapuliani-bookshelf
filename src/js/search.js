@@ -94,13 +94,12 @@ const getBooks = async function (genre) {
               class="book-cover"
               src="https://covers.openlibrary.org/b/id/${book.cover_id}.jpg"
               alt="Book cover" 
-              onerror="this.onerror=null; setTimeout(() => this.src = '${BookOnerror}', 5000)/>
+              onerror="this.onerror=null;this.src='${BookOnerror}'"/>
               <div class="book-info">
                 <p class="book-title"><strong>${book.title}</strong></p>
                 <p class="book-author">${book.authors[0].name}</p>
               </div>
             </button>`;
-
         searchResults.insertAdjacentHTML('beforeend', card);
       });
     } else wrongGenre(genre);
