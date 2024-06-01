@@ -20,7 +20,8 @@ To use Bookshelf, follow these steps:
 1. Use the search bar to search for books by genre.
 2. Click on a book to view its details.
 
-![Screenshot 2024-06-01 114147](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/1f719e0c-2525-4f21-a60f-79b718857c00)
+![Screenshot 2024-06-01 114147](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/c02d1217-08b5-446d-b966-aa2cc6bcc827)
+
 
 ![Screenshot 2024-06-01 122504](https://github.com/alepuliani/alessandrapuliani-bookshelf/assets/151534738/d016f828-29e9-44a5-93ee-f597db6376b0)
 
