@@ -9,7 +9,7 @@ Bookshelf is a web application that allows users to search for books by genre an
 ## Feautures
 
 - Search for books by genre
-- Display book details, including title, author, and description
+- Display book details, including title, author and description
 - Add books to a personal bookshelf
 
 ## How it works
